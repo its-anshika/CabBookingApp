@@ -1,0 +1,5 @@
+http://localhost:8080/register/cab?id=123&driverName=John
+http://localhost:8080/update/cab/location?cabId=123&newX=15.0&newY=15.0
+http://localhost:8080/register/rider?id=ajayID&riderName=Ajay
+http://localhost:8080/book?riderId=ajayID&fromX=10.0&fromY=20.0&toX=15.0&toY=25.0
+http://localhost:8080/get/history?riderId=ajayID
