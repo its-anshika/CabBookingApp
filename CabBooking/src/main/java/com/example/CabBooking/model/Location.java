@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 
-@AllArgsConstructor
+//@AllArgsConstructor
 public class Location {
     private Double x;
     private Double y;
@@ -14,6 +14,7 @@ public class Location {
         this.y = y;
     }
     public Double distance(Location l){
+
         return sqrt(pow(this.x - l.x,2) + pow(this.y - l.y, 2));
     }
 

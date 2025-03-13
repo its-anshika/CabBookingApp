@@ -13,16 +13,14 @@ import java.util.Map;
 public class RidersRepository {
     Map<String, Rider> riders = new HashMap<>();
 
-    public void createRider(Rider newRider){
+    public void createRider(@NonNull Rider newRider){
         if(riders.containsKey(newRider.getRiderId()))
             throw new RiderAlreadyExistsException();
-//            System.out.println("Rider already Exists!");
         riders.put(newRider.getRiderId(), newRider);
     }
 
     public Rider getRider(@NonNull final String riderId) {
         if (!riders.containsKey(riderId)) {
-//            System.out.println("Rider not found!");
             throw new RiderNotFoundException();
         }
         return riders.get(riderId);

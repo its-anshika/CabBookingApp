@@ -7,7 +7,7 @@ import lombok.Setter;
 //@Getter
 public class Cab {
     String id;
-    String riderName;
+    String driverName;
     @Setter
     Trip currentTrip;
     @Setter
@@ -15,9 +15,9 @@ public class Cab {
     @Setter
     Boolean isAvailable;
 
-    public Cab(String id, String riderName) {
+    public Cab(String id, String driverName) {
         this.id = id;
-        this.riderName = riderName;
+        this.driverName = driverName;
         this.isAvailable = true;
     }
     public String getCabId(){
@@ -29,9 +29,17 @@ public class Cab {
     public void setCurrentLocationOfCab(Location newLocation){
         this.currentLocation = newLocation;
     }
+    public Location getCurrentLocationOfCab(){
+        return this.currentLocation;
+    }
+
     public void setIsAvailableOfCab(Boolean newAvailable){
         this.isAvailable = newAvailable;
     }
+    public Boolean getIsAvailableOfCab(){
+        return this.isAvailable;
+    }
+
     public void setCurrentTripOfCab(Trip currTrip){
         this.currentTrip = currTrip;
     }
@@ -40,7 +48,7 @@ public class Cab {
     public String toString() {
         return "Cab{" +
                 "id='" + id + '\'' +
-                ", driverName='" + riderName + '\'' +
+                ", driverName='" + driverName + '\'' +
                 ", currentLocation=" + currentLocation +
                 ", isAvailable=" + isAvailable +
                 '}';

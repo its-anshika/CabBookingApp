@@ -6,7 +6,9 @@ import com.example.CabBooking.model.Location;
 import lombok.NonNull;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Repository
@@ -34,11 +36,21 @@ public class CabsRepository {
         cabs.get(id).setCurrentLocationOfCab(newLocation);
     }
 
-    public void updateCabAvailability(String id, Boolean newAv){
+    public void updateCabAvailability(@NonNull final String id, @NonNull final Boolean newAv){
         if (!cabs.containsKey(id)) {
             throw new CabNotFoundException();
         }
         cabs.get(id).setIsAvailableOfCab(newAv);
+
+    }
+
+    public List<Cab> getCabs(@NonNull final Location src, @NonNull final Double withinDist){
+        List<Cab> availableCabs = new ArrayList<>();
+        for(Cab cab: cabs.values()){
+            if(cab.getIsAvailableOfCab() && cab.getCurrentTripOfCab() == null && cab.getCurrentLocationOfCab().distance(src) <= withinDist)
+                availableCabs.add(cab);
+        }
+        return availableCabs;
 
     }
 }

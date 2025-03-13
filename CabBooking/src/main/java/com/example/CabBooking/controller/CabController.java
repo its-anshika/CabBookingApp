@@ -24,12 +24,12 @@ public class CabController {
     }
 
     @RequestMapping(value = "/register/cab", method = RequestMethod.POST)
-//    public ResponseEntity createCab(String id, String riderName){
-    public ResponseEntity<String> createCab(@RequestParam String id, @RequestParam String riderName) {
-        cabsRepository.createCab(new Cab(id, riderName));
+//    public ResponseEntity createCab(String id, String driverName){
+    public ResponseEntity<String> createCab(@RequestParam String id, @RequestParam String driverName) {
+        cabsRepository.createCab(new Cab(id, driverName));
         return ResponseEntity.ok("Cab registered successfully!");
     }
-//query param: @RequestParam, eg: http://localhost:8080/register/cab?id=CAB123&riderName=JohnDoe
+//http://localhost:8080/register/cab?id=CAB123&driverName=JohnDoe
 
     @RequestMapping(value = "/update/cab/location", method = RequestMethod.POST)
     public ResponseEntity<String> updateCabLocation(
